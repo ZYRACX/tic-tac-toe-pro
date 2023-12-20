@@ -1,15 +1,12 @@
 // src/index.tsx
-import React from 'react';
-import ReactDOM from 'react-dom';
+import {createRoot} from 'react-dom/client';
 import './index.css';
 import App from './App';
-import { io } from 'socket.io-client';
 
-const socket = io('http://localhost:4001');
+document.body.innerHTML = '<div id="app"></div>';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App socket={socket} />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+
+
+const root = createRoot(document.getElementById('app'));
+
+root.render(<App/>)
